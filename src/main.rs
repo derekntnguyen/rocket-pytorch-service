@@ -16,10 +16,16 @@ fn ping() -> &'static str {
     "pong!"
 }
 
+#[get("/predict")]
+fn predict() -> &'static str {
+    "Temporary Output"
+}
+
 #[launch]
 fn rocket() -> _ {
     rocket::build()
         .mount("/", routes![root])
         .mount("/", routes![hello_world])
         .mount("/", routes![ping])
+        .mount("/", routes![predict])
 }
